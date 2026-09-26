@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JobTrack | Job Application Manager</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="hero">
+    <div>
+        <p class="eyebrow">CAREER MANAGEMENT</p>
+        <h1>JobTrack</h1>
+        <p>Track your job applications in one simple dashboard.</p>
+    </div>
+</header>
+
+<main class="container">
+
+    <section class="stats-grid">
+        <div class="stat-card">
+            <span class="stat-label">Total</span>
+            <strong id="totalCount">0</strong>
+        </div>
+        <div class="stat-card">
+            <span class="stat-label">Applied</span>
+            <strong id="appliedCount">0</strong>
+        </div>
+        <div class="stat-card">
+            <span class="stat-label">Interview</span>
+            <strong id="interviewCount">0</strong>
+        </div>
+        <div class="stat-card">
+            <span class="stat-label">Selected</span>
+            <strong id="selectedCount">0</strong>
+        </div>
+        <div class="stat-card">
+            <span class="stat-label">Rejected</span>
+            <strong id="rejectedCount">0</strong>
+        </div>
+    </section>
+
+    <section class="panel">
+        <div class="panel-heading">
+            <div>
+                <h2 id="formTitle">Add Job Application</h2>
+                <p>Save a new application or update an existing one.</p>
+            </div>
+        </div>
+
+        <form id="jobForm" class="job-form">
+            <input type="hidden" id="jobId">
+
+            <div class="field">
+                <label for="company">Company</label>
+                <input id="company" type="text" maxlength="100"
+                       placeholder="e.g. TCS" required>
+            </div>
+
+            <div class="field">
+                <label for="role">Job Role</label>
+                <input id="role" type="text" maxlength="100"
+                       placeholder="e.g. Java Developer" required>
+            </div>
+
+            <div class="field">
+                <label for="location">Location</label>
+                <input id="location" type="text" maxlength="100"
+                       placeholder="e.g. Lucknow / Remote">
+            </div>
+
+            <div class="field">
+                <label for="appliedDate">Applied Date</label>
+                <input id="appliedDate" type="date" required>
+            </div>
+
+            <div class="field">
+                <label for="status">Status</label>
+                <select id="status">
+                    <option value="APPLIED">Applied</option>
+                    <option value="INTERVIEW">Interview</option>
+                    <option value="SELECTED">Selected</option>
+                    <option value="REJECTED">Rejected</option>
+                </select>
+            </div>
+
+            <div class="form-actions">
+                <button id="submitButton" class="primary" type="submit">
+                    Add Application
+                </button>
+                <button id="cancelButton" class="secondary hidden"
+                        type="button">
+                    Cancel Edit
+                </button>
+            </div>
+        </form>
+    </section>
+
+    <section class="panel">
+        <div class="toolbar">
+            <div>
+                <h2>Applications</h2>
+                <p id="resultText">Loading applications...</p>
+            </div>
+
+            <div class="filters">
+                <input id="searchInput" type="search"
+                       placeholder="Search company...">
+
+                <select id="statusFilter">
+                    <option value="">All Statuses</option>
+                    <option value="APPLIED">Applied</option>
+                    <option value="INTERVIEW">Interview</option>
+                    <option value="SELECTED">Selected</option>
+                    <option value="REJECTED">Rejected</option>
+                </select>
+
+                <button id="clearFilters" class="secondary" type="button">
+                    Clear
+                </button>
+            </div>
+        </div>
+
+        <div id="message" class="message hidden"></div>
+        <div id="jobList" class="job-list"></div>
+    </section>
+
+</main>
+
+<footer>
+    <p>JobTrack &mdash; Java Spring Boot Full-Stack Project</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
